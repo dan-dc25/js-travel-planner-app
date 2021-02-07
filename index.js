@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(e) {
   Trip.getTrips()
-  Activity.getActivities()
-  //Activity.getActivities()
   clickEvent();
 })
 
@@ -13,13 +11,13 @@ document.addEventListener('click', function(e) {
   let addActivityBtn = document.getElementById('create-activity');
 
   if(target.matches('#edit-trip-button')){
-    let trip = Trip.findById(target.dataset.tripId)
-    trip.editTripForm();
+    let id = Trip.findById(target.dataset.tripId)
+    Trip.editTripForm();
   } else if(target.matches('#delete-trip-button')) {
-    let trip = Trip.findById(target.dataset.tripId);
-    trip.delete();
+    let id = Trip.findById(target.dataset.tripId);
+    Trip.delete(target.dataset.tripId);
   }else if(target.matches('#create-activity')) {
-    let trip = Trip.findById(target.dataset.tripId)
+    let trip = Trip.all.findById(target.dataset.tripId)
     activityFormContainer.style.display = "block";
     formContainer.addEventListener('submit', function(e) {
       e.preventDefault();
