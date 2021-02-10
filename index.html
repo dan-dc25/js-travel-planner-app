@@ -21,18 +21,13 @@
                             </div>
                         </div>
 
-                        <div class="level-right">
-                            <div class="level-item">
-                                <button id="add-trip-btn" class="button is-primary is-medium is-light">Create a Trip</button>
-                            </div>    
-                        </div>
                     </div>
 
                     <div class="container" id="form-container" style="display: none;">
                         <div class="columns">
                         <div class="column is-two-thirds">
                             
-                        <form class="add-trip-form">
+                        <form id="add-trip-form">
                             <h2 class="title">Create Trip</h2>
                             <h2 class = "subtitle">All fields are required</h2>
 
@@ -46,11 +41,11 @@
                             <div class="field">
                                 <label class="date" style="color: rgb(238, 247, 247);">Date</label>
                                 <div class= "control">
-                                    <input class="input" type="date" placeholder="Enter your trip's date..." id="trip-date" name="trip-date" required>
+                                    <input class="input" type="date" placeholder="Enter your trip's date..." id="new-trip-date" name="new-trip-date" required>
                                 </div>
                             </div>
 
-                            <input type="submit" name="submit" value="Add New Trip" class="button is-primary is-light"/>
+                            <input type="submit" name="submit" id="new-trip-button" value="Add New Trip" class="button is-primary is-light"/>
                         </form>
 
                         </div>    
@@ -66,51 +61,12 @@
             <div class="content">
                 <h1 class="title">All Trips</h1>
             </div>
-           <div class="columns">
-               <div class="column is-one-quarter" >
-                   <ul class="trip-list">
-                       <ul class="activity-list" style="list-style-type: circle;">
+           <div class="trips-container" id="trip-list">
+                <div class="container" id="activity-form-container" style="display: none;">
 
-                       </ul>
-                       <div class="container" id="activity-form-container" style="display: none;">
-                        <div class="columns">
-                        <div class="column is-two-thirds">
-                            
-                        <form class="add-activity-form">
-                            <h2 class="title">Add an Activity</h2>
-                            <h2 class = "subtitle">All fields are required</h2>
-
-                            <div class="field">
-                                <label class="label" style="color: rgb(238, 247, 247);">Name</label>
-                                <div class="control">
-                                    <input class="input" type="text" placeholder="Enter the activity's name..." id="new-activity" name="new-activity" required>
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <label class="label" style="color: rgb(238, 247, 247);">Location</label>
-                                <div class= "control">
-                                    <input class="input" type="text" placeholder="Enter the location of this trip's activity..." id="activity-location" name="activity-location" required>
-                                </div>
-                            </div>
-
-                            <input type="submit" name="submit" value="Add New Activity" class="button is-primary is-light"/>
-                        </form>
-
-                        </div>    
-                        </div>
-                    </div>
-                   </ul>
-                   <section class="trip-details">
-                       <div class="paragraph">
-                           
-                        </div>
-                    </section>
-               </div>
-           </div>
-
-
-        </section> 
+                </div>
+            </div>
+        </section>
         
         
         <footer class="footer">
@@ -122,8 +78,11 @@
         </footer>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="trip.js"></script>
-        <script src="activity.js"></script>
+        <script src="src/adapter/apiAdapter.js"></script>
+        <script src="src/classes/trip.js"></script>
+        <script src="src/classes/trips.js"></script>
+        <script src="src/classes/activity.js"></script>
+        <script src="src/classes/activities.js"></script>
         <script src="index.js"></script>
     </body>
 </html>
