@@ -45,7 +45,7 @@ class Trip {
     
         deleteButton.addEventListener("click",(event) => {
             event.preventDefault()
-            tripsContainer.remove(`${this.id}`)
+            tripDiv.remove()
             ApiAdapter.deleteTrip(`${this.id}`)
         })
   
@@ -75,6 +75,7 @@ class Trip {
         const newActivityForm = document.createElement("form");
         newActivityForm.class = "new-activity-form"
         newActivityForm.id = `activity-form-${this.id}`
+        newActivityForm.style.display = "block"
         activityDiv.append(newActivityForm)
 
         const newActivityHeader = document.createElement('h4');
@@ -122,8 +123,10 @@ class Trip {
 
         function displayHideActivities() {
             const activityDiv = document.getElementById(`${this.id}-activities-container`)
+            const activityBtn = document.getElementById(`show-activities-${this.id}`)
             if (activityDiv.style.display === "none") {
                 activityDiv.style.display = "block"
+                activityBtn.innerText = "Hide Activities"
             } else {
                 activityDiv.style.display = "none"
             }
@@ -134,9 +137,9 @@ class Trip {
         const showActivitiesBtn = document.createElement("button");
         showActivitiesBtn.id = `show-activities-${this.id}`
         showActivitiesBtn.className = 'show-button button is-primary is-rounded'
-        showActivitiesBtn.innerText = 'Activities'
+        showActivitiesBtn.innerText = 'Show Activities'
         showActivitiesBtn.addEventListener('click', displayHideActivities.bind(this))
-        tripsContainer.append(showActivitiesBtn);
+        tripDiv.append(showActivitiesBtn);
 
     }
 }

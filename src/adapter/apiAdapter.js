@@ -13,7 +13,7 @@ class ApiAdapter {
             location: attributes[0],
             date: attributes[1]
         }
-console.log(trip)
+
         return fetch("http://localhost:3000/trips", {
             method: "POST",
             headers: {
