@@ -3,6 +3,7 @@ class Trips {
         this.all = []
         this.constructor.tripsInstance = this
         this.newTripBindings()
+        this.sortTrips()
     }
 
 
@@ -56,5 +57,22 @@ class Trips {
         this.all.map(trip => trip.renderTrip())
     }
 
+    sortTrips() {
+        const tripContent = document.getElementById("trip-content");
+        const tripList = document.getElementById("trip-list")
+        const sortTripBtn = document.createElement('button');
+        sortTripBtn.id = "sort-trip-button"
+        sortTripBtn.innerText = "Sort"
+        tripContent.appendChild(sortTripBtn)
+        sortTripBtn.addEventListener('click', () => {
+           const sortedTrips = this.all.sort(function(a, b) {
+                    return new Date(b.date) - new Date(a.date)
+
+            })
+            tripList.innerHTML = ""
+           sortedTrips.map(sortedTrip => sortedTrip.renderTrip()) 
+        })
+       
+    }
   
 }

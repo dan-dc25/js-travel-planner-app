@@ -34,6 +34,7 @@ class Trip {
 
         tripDiv.append(newTripUl, listItems)
 
+
         // Delete Button
         const deleteButton = document.createElement('button');
         deleteButton.className = "delete-button button is-danger is-rounded"
@@ -126,8 +127,7 @@ class Trip {
             const activityBtn = document.getElementById(`show-activities-${this.id}`)
             if (activityDiv.style.display === "none") {
                 activityDiv.style.display = "block"
-                activityBtn.innerText = "Hide Activities"
-            } else {
+            }else {
                 activityDiv.style.display = "none"
             }
         }
@@ -142,4 +142,6 @@ class Trip {
         tripDiv.append(showActivitiesBtn);
 
     }
+
+
 }
